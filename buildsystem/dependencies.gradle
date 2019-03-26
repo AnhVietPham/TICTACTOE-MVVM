@@ -7,10 +7,10 @@ ext {
 
     //Packages
     supportPackage = 'com.android.support'
-    architecturePackage = 'android.arch.lifecycle'
+    architecturePackage = 'androidx.lifecycle'
     junitPackage = 'junit'
     baristaPackage = 'com.schibsted.spain'
-    architectureCorePackage = 'android.arch.core'
+    architectureCorePackage = 'androidx.arch.core'
 
     //Dependencies
     supportDependencies = [
@@ -19,7 +19,7 @@ ext {
     ]
 
     architectureComponentDependencies = [
-            viewModelAndLiveData: buildDependency(architecturePackage, 'extensions', architectureComponentVersion)
+            viewModelAndLiveData: buildDependency(architecturePackage, 'lifecycle-extensions', architectureComponentVersion)
     ]
 
     testingDependencies = [
