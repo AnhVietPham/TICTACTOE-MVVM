@@ -2,7 +2,9 @@ package com.avp.mvvm_databinding.model
 
 import androidx.lifecycle.MutableLiveData
 
-class Game {
+class Game(
+    playerOne: String,
+    playerTwo: String) {
 
     companion object {
         private val TAG = Game::class.java.simpleName
@@ -17,8 +19,8 @@ class Game {
 
     init {
         cells = Array(BOARD_SIZE) { arrayOfNulls<Cell>(BOARD_SIZE) }
-        player1 = Player(name = "PlayerOne", value = "x")
-        player2 = Player(name = "PlayerTwo", value = "o")
+        player1 = Player(name = playerOne, value = "x")
+        player2 = Player(name = playerTwo, value = "o")
         currentPlayer = player1
     }
 
@@ -39,7 +41,7 @@ class Game {
         return false
     }
 
-    fun hasThreeSameHorizontalCells(): Boolean {
+    private fun hasThreeSameHorizontalCells(): Boolean {
         for (i in 0 until BOARD_SIZE) {
             if (areEquals(cells[i][0], cells[i][1], cells[i][2]))
                 return true
@@ -47,7 +49,7 @@ class Game {
         return false
     }
 
-    fun hasThreeSameVerticalCells(): Boolean {
+    private fun hasThreeSameVerticalCells(): Boolean {
         for (i in 0 until BOARD_SIZE) {
             if (areEquals(cells[0][i], cells[1][i], cells[2][i]))
                 return true
