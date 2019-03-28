@@ -11,9 +11,9 @@ class Game(
         private const val BOARD_SIZE = 3
     }
 
-    var player1: Player
-    var player2: Player
-    var currentPlayer: Player
+    var player1: Player?
+    var player2: Player?
+    var currentPlayer: Player?
     var cells: Array<Array<Cell?>>
     var winner: MutableLiveData<Player> = MutableLiveData()
 
@@ -92,5 +92,10 @@ class Game(
         return true
     }
 
-
+    fun reset(){
+        player1 = null
+        player2 = null
+        currentPlayer = null
+        cells = emptyArray()
+    }
 }
