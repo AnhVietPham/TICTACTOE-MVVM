@@ -3,14 +3,14 @@ ext {
     supportVersion = '28.0.0'
     junitVersion = '4.12'
     baristaVersion = '2.9.0'
-    architectureComponentVersion = '2.0.0'
+    architectureComponentVersion = '1.1.1'
 
     //Packages
     supportPackage = 'com.android.support'
-    architecturePackage = 'androidx.lifecycle'
+    architecturePackage = 'android.arch.lifecycle'
     junitPackage = 'junit'
     baristaPackage = 'com.schibsted.spain'
-    architectureCorePackage = 'androidx.arch.core'
+    architectureCorePackage = 'android.arch.core'
 
     //Dependencies
     supportDependencies = [
@@ -19,7 +19,7 @@ ext {
     ]
 
     architectureComponentDependencies = [
-            viewModelAndLiveData: buildDependency(architecturePackage, 'lifecycle-extensions', architectureComponentVersion)
+            viewModelAndLiveData: buildDependency(architecturePackage, 'extensions', architectureComponentVersion)
     ]
 
     testingDependencies = [
