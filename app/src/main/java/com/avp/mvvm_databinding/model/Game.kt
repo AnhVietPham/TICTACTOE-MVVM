@@ -1,6 +1,7 @@
 package com.avp.mvvm_databinding.model
 
-import androidx.lifecycle.MutableLiveData
+import android.arch.lifecycle.MutableLiveData
+
 
 class Game(
     playerOne: String,
