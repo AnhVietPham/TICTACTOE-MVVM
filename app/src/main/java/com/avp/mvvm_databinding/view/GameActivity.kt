@@ -44,15 +44,21 @@ class GameActivity : AppCompatActivity() {
 
     private fun setUpOnGameEndListener() {
         gameViewModel.getWinner().observe(this, Observer { player ->
-            player?.let {
+            if (player != null) {
                 onGameWinnerChanged(player)
+            } else {
+                showDialogEndGame("No Winner")
             }
         })
     }
 
     private fun onGameWinnerChanged(winner: Player) {
         val winnerName = if (isNullOrEmpty(winner.name)) NO_WINNER else winner.name
-        val dialog = GameEndDialog.newInstance(this, winnerName)
+        showDialogEndGame(winnerName)
+    }
+
+    private fun showDialogEndGame(nameWinner: String) {
+        val dialog = GameEndDialog.newInstance(this, nameWinner)
         dialog.isCancelable = false
         dialog.show(supportFragmentManager, GAME_END_DIALOG_TAG)
     }
